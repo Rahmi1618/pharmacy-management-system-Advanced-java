@@ -1,9 +1,7 @@
 ﻿package pharmacy.system;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
 public class Sale {
     private int saleId;
     private Date saleDate;
