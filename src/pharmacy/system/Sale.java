@@ -1,7 +1,16 @@
 ﻿package pharmacy.system;
+Ekram
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+}
+
+}
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+Rehemet
 public class Sale {
     private int saleId;
     private Date saleDate;
@@ -31,4 +40,8 @@ public class Sale {
     public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
     public List<SaleItem> getItems() { return items; }
     public void setItems(List<SaleItem> items) { this.items = items; }
+ Ekram
 }
+
+}
+Rehemet
