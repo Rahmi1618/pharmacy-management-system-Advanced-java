@@ -1,6 +1,4 @@
-
 package pharmacy.system;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -47,7 +45,6 @@ public class PharmacyManagementSystem extends JFrame {
         loadSalesHistory();
         loadMedicineComboBox();
     }
-    
     private void initUI() {
         setTitle("Pharmacy Management System");
         setSize(1200, 700);
