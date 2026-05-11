@@ -2,10 +2,7 @@ package pharmacy.system;
 
 import java.sql.*;
 
-/**
- * DatabaseConnection class handles all MySQL database connectivity
- * @author Member 1
- * @version 1.0
+/*DatabaseConnection class handles all MySQL database connectivity
  */
 public class DatabaseConnection {
     
