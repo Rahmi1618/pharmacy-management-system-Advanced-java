@@ -1,8 +1,7 @@
 package pharmacy.system;
-
 import java.sql.*;
-
-/*DatabaseConnection class handles all MySQL database connectivity
+/*
+ DatabaseConnection class handles all MySQL database connectivity
  */
 public class DatabaseConnection {
     
@@ -23,7 +22,6 @@ public class DatabaseConnection {
             throw new SQLException("MySQL JDBC Driver not found");
         }
     }
-    
     public static void closeConnection(Connection conn) {
         if (conn != null) {
             try {
@@ -34,3 +32,5 @@ public class DatabaseConnection {
         }
     }
 }
+
+
