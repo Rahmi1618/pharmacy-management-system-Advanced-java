@@ -5,19 +5,19 @@ This project demonstrates the practical application of:
 - GUI development with Java Swing
 - Database integration using JDBC
 - MVC (Model-View-Controller) architecture
-- Team collaboration using Git/GitHub
+- Team collaboration using Git/GitHub  
 
 
       Team Members
 
-Name              ID          GitHub
+Name                      ID               GitHub
 
-Rehemet Muhamed	1618/16	  Rahmi1618
+Rehemet Muhamed	          1618/16	         Rahmi1618
 
-Tsion Melake	1974/16	  tsi2129
+Tsion Melake	            1974/16	         tsi2129
 
-Hawlet Yimam	1001/16	  hawlet-yimam
+Hawlet Yimam	            1001/16	         hawlet-yimam
 
-Ekram Yasin	0638/16	  ekramyasin12
+Ekram Yasin	              0638/16	         ekramyasin12
 
-Mindelah Jemal	1389/16	  Mindelah
+Mindelah Jemal	          1389/16	         Mindelah
