@@ -8,14 +8,16 @@ This project demonstrates the practical application of:
 - Team collaboration using Git/GitHub
 
 
-         GROUP MEMBERS
-                 
-1.Rehemet Muhamed     ID  1618/16      GitHub username Rahmi1618
+      Team Members
 
-2.Tsion Melake         ID  1974/16      GitHub Username tsi2129
+Name              ID          GitHub
 
-3.Hawlet Yimam        ID    1001/16      GitHub Username hawlet-yimam
- 
-4.Ekram Yasin         ID    0638/16       GitHub Username ekramyasin12
+Rehemet Muhamed	1618/16	  Rahmi1618
 
-5.Mindelah Jemal      ID    1389/16      GitHub Username Mindelah
+Tsion Melake	1974/16	  tsi2129
+
+Hawlet Yimam	1001/16	  hawlet-yimam
+
+Ekram Yasin	0638/16	  ekramyasin12
+
+Mindelah Jemal	1389/16	  Mindelah
