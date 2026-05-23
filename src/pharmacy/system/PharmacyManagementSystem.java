@@ -416,3 +416,24 @@ String selected = (String) cmbMedicine.getSelectedItem();
                 JOptionPane.showMessageDialog(this, "Insufficient stock!");
                 return;
             }
+            SaleItem item = new SaleItem();
+            item.setMedicineId(medicineId);
+            item.setMedicineName(medicine.getName());
+            item.setQuantity(quantity);
+            item.setUnitPrice(medicine.getPrice());
+            item.setSubtotal(medicine.getPrice().multiply(BigDecimal.valueOf(quantity)));
+            
+            cart.add(item);
+            currentTotal = currentTotal.add(item.getSubtotal());
+            
+            cartTableModel.addRow(new Object[]{
+                item.getMedicineId(), item.getMedicineName(),
+                item.getQuantity(), "$" + item.getUnitPrice(), "$" + item.getSubtotal()
+            });
+            
+            lblTotal.setText("$" + currentTotal.toString());
+            txtQuantity.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }
