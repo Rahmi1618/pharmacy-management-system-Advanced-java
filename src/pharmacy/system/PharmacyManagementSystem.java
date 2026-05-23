@@ -391,3 +391,13 @@ private void deleteMedicine() {
             }
         }
     }
+ private void clearMedicineForm() {
+        txtName.setText("");
+        txtCategory.setText("");
+        txtManufacturer.setText("");
+        txtPrice.setText("");
+        txtStock.setText("");
+        chkPrescription.setSelected(false);
+        dateSpinner.setValue(new Date());
+        txtSearch.setText("");
+    }
