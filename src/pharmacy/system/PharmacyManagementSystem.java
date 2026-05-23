@@ -437,3 +437,9 @@ String selected = (String) cmbMedicine.getSelectedItem();
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }
+    private void clearCart() {
+        cart.clear();
+        currentTotal = BigDecimal.ZERO;
+        cartTableModel.setRowCount(0);
+        lblTotal.setText("$0.00");
+    }
