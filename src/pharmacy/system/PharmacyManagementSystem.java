@@ -372,3 +372,22 @@ public class PharmacyManagementSystem extends JFrame {
             JOptionPane.showMessageDialog(this, "Error updating medicine: " + e.getMessage());
         }
     }
+private void deleteMedicine() {
+        int row = medicineTable.getSelectedRow();
+        if (row < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a medicine to delete");
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this, "Delete this medicine?", "Confirm", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                int id = (int) medicineTableModel.getValueAt(row, 0);
+                medicineDAO.deleteMedicine(id);
+                JOptionPane.showMessageDialog(this, "Medicine deleted!");
+                loadMedicines();
+                loadMedicineComboBox();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error deleting medicine: " + e.getMessage());
+            }
+        }
+    }
