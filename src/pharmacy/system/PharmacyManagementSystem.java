@@ -346,4 +346,9 @@ public class PharmacyManagementSystem extends JFrame {
             JOptionPane.showMessageDialog(this, "Error adding medicine: " + e.getMessage());
         }
     }
-  
+   private void updateMedicine() {
+        int row = medicineTable.getSelectedRow();
+        if (row < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a medicine to update");
+            return;
+        }
