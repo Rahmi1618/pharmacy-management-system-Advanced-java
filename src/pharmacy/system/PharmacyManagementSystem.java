@@ -273,4 +273,52 @@ public class PharmacyManagementSystem extends JFrame {
         
         return panel;
     }
+     private void loadMedicines() {
+        try {
+            medicineTableModel.setRowCount(0);
+            List<Medicine> medicines = medicineDAO.getAllMedicines();
+            for (Medicine m : medicines) {
+                medicineTableModel.addRow(new Object[]{
+                    m.getMedicineId(), m.getName(), m.getCategory(),
+                    m.getManufacturer(), "$" + m.getPrice(), m.getStockQuantity(),
+                    m.getExpiryDate(), m.isPrescriptionRequired() ? "Yes" : "No"
+                });
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error loading medicines: " + e.getMessage());
+        }
+    }
     
+    private void loadMedicineComboBox() {
+        try {
+            cmbMedicine.removeAllItems();
+            List<Medicine> medicines = medicineDAO.getAllMedicines();
+            for (Medicine m : medicines) {
+                cmbMedicine.addItem(m.getMedicineId() + " - " + m.getName() + " (Stock: " + m.getStockQuantity() + ")");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void searchMedicines() {
+        String keyword = txtSearch.getText().trim();
+        if (keyword.isEmpty()) {
+            loadMedicines();
+            return;
+        }
+
+        try {
+            medicineTableModel.setRowCount(0);
+            List<Medicine> medicines = medicineDAO.searchMedicines(keyword);
+            for (Medicine m : medicines) {
+                medicineTableModel.addRow(new Object[]{
+                    m.getMedicineId(), m.getName(), m.getCategory(),
+                    m.getManufacturer(), "$" + m.getPrice(), m.getStockQuantity(),
+                    m.getExpiryDate(), m.isPrescriptionRequired() ? "Yes" : "No"
+                });
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Search error: " + e.getMessage());
+        }
+    }
