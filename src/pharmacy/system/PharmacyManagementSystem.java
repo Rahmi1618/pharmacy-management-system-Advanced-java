@@ -352,3 +352,23 @@ public class PharmacyManagementSystem extends JFrame {
             JOptionPane.showMessageDialog(this, "Please select a medicine to update");
             return;
         }
+ try {
+            int id = (int) medicineTableModel.getValueAt(row, 0);
+            Medicine medicine = new Medicine();
+            medicine.setMedicineId(id);
+            medicine.setName(txtName.getText().trim());
+            medicine.setCategory(txtCategory.getText().trim());
+            medicine.setManufacturer(txtManufacturer.getText().trim());
+            medicine.setPrice(new BigDecimal(txtPrice.getText().trim()));
+            medicine.setStockQuantity(Integer.parseInt(txtStock.getText().trim()));
+            medicine.setExpiryDate((Date) dateSpinner.getValue());
+            medicine.setPrescriptionRequired(chkPrescription.isSelected());
+            
+            medicineDAO.updateMedicine(medicine);
+            JOptionPane.showMessageDialog(this, "Medicine updated successfully!");
+            loadMedicines();
+            loadMedicineComboBox();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error updating medicine: " + e.getMessage());
+        }
+    }
