@@ -401,3 +401,9 @@ private void deleteMedicine() {
         dateSpinner.setValue(new Date());
         txtSearch.setText("");
     }
+ private void addToCart() {
+        try {
+            if (cmbMedicine.getItemCount() == 0) {
+                JOptionPane.showMessageDialog(this, "No medicines available!");
+                return;
+            }
