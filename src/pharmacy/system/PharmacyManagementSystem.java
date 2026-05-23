@@ -322,3 +322,28 @@ public class PharmacyManagementSystem extends JFrame {
             JOptionPane.showMessageDialog(this, "Search error: " + e.getMessage());
         }
     }
+ private void addMedicine() {
+        try {
+            if (txtName.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Medicine name is required!");
+                return;
+            }
+            Medicine medicine = new Medicine();
+            medicine.setName(txtName.getText().trim());
+            medicine.setCategory(txtCategory.getText().trim());
+            medicine.setManufacturer(txtManufacturer.getText().trim());
+            medicine.setPrice(new BigDecimal(txtPrice.getText().trim()));
+            medicine.setStockQuantity(Integer.parseInt(txtStock.getText().trim()));
+            medicine.setExpiryDate((Date) dateSpinner.getValue());
+            medicine.setPrescriptionRequired(chkPrescription.isSelected());
+            
+            medicineDAO.addMedicine(medicine);
+            JOptionPane.showMessageDialog(this, "Medicine added successfully!");
+            loadMedicines();
+            clearMedicineForm();
+            loadMedicineComboBox();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error adding medicine: " + e.getMessage());
+        }
+    }
+  
