@@ -250,3 +250,27 @@ public class PharmacyManagementSystem extends JFrame {
         
         return panel;
     }
+ private JPanel createSalesPanel() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        
+        String[] columns = {"Sale ID", "Date", "Customer", "Total Amount", "Payment Method"};
+        salesTableModel = new DefaultTableModel(columns, 0);
+        salesTable = new JTable(salesTableModel);
+        JScrollPane scrollPane = new JScrollPane(salesTable);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        
+        JPanel buttonPanel = new JPanel();
+        JButton btnRefresh = new JButton("Refresh");
+        btnRefresh.addActionListener(e -> loadSalesHistory());
+        buttonPanel.add(btnRefresh);
+        
+        JButton btnRevenue = new JButton("Total Revenue");
+        btnRevenue.addActionListener(e -> showTotalRevenue());
+        buttonPanel.add(btnRevenue);
+        
+        panel.add(buttonPanel, BorderLayout.SOUTH);
+        
+        return panel;
+    }
+    
