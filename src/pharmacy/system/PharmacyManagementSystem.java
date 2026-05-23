@@ -407,3 +407,12 @@ private void deleteMedicine() {
                 JOptionPane.showMessageDialog(this, "No medicines available!");
                 return;
             }
+String selected = (String) cmbMedicine.getSelectedItem();
+            int medicineId = Integer.parseInt(selected.split(" - ")[0]);
+            int quantity = Integer.parseInt(txtQuantity.getText().trim());
+            
+            Medicine medicine = medicineDAO.getMedicineById(medicineId);
+            if (medicine.getStockQuantity() < quantity) {
+                JOptionPane.showMessageDialog(this, "Insufficient stock!");
+                return;
+            }
