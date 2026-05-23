@@ -220,3 +220,33 @@ public class PharmacyManagementSystem extends JFrame {
         gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
+          gbc.gridx = 0; gbc.gridy = 0;
+        rightPanel.add(new JLabel("Customer Name:"), gbc);
+        gbc.gridx = 1;
+        txtCustomerName = new JTextField(15);
+        rightPanel.add(txtCustomerName, gbc);
+        
+        gbc.gridx = 0; gbc.gridy = 1;
+        rightPanel.add(new JLabel("Payment Method:"), gbc);
+        gbc.gridx = 1;
+        cmbPaymentMethod = new JComboBox<>(new String[]{"Cash", "Credit Card", "Debit Card", "Insurance"});
+        rightPanel.add(cmbPaymentMethod, gbc);
+        
+        gbc.gridx = 0; gbc.gridy = 2;
+        rightPanel.add(new JLabel("Total Amount:"), gbc);
+        gbc.gridx = 1;
+        lblTotal = new JLabel("$0.00");
+        lblTotal.setFont(new Font("Arial", Font.BOLD, 18));
+        rightPanel.add(lblTotal, gbc);
+        
+        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        JButton btnCheckout = new JButton("Complete Sale");
+        btnCheckout.setBackground(new Color(50, 205, 50));
+        btnCheckout.addActionListener(e -> completeSale());
+        rightPanel.add(btnCheckout, gbc);
+        
+        panel.add(rightPanel, BorderLayout.EAST);
+        
+        return panel;
+    }
