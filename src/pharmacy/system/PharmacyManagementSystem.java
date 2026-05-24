@@ -479,3 +479,11 @@ private void loadSalesHistory() {
             JOptionPane.showMessageDialog(this, "Error loading sales: " + e.getMessage());
         }
     }
+private void showTotalRevenue() {
+        try {
+            BigDecimal revenue = saleDAO.getTotalRevenue();
+            JOptionPane.showMessageDialog(this, "Total Revenue: $" + revenue);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }
