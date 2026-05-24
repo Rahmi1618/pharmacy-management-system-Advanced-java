@@ -443,3 +443,24 @@ String selected = (String) cmbMedicine.getSelectedItem();
         cartTableModel.setRowCount(0);
         lblTotal.setText("$0.00");
     }
+try {
+            Sale sale = new Sale();
+            sale.setCustomerName(txtCustomerName.getText().trim().isEmpty() ? "Walk-in Customer" : txtCustomerName.getText());
+            sale.setTotalAmount(currentTotal);
+            sale.setPaymentMethod((String) cmbPaymentMethod.getSelectedItem());
+            sale.setItems(new ArrayList<>(cart));
+            
+            saleDAO.addSale(sale);
+            for (SaleItem item : cart) {
+                medicineDAO.updateStock(item.getMedicineId(), item.getQuantity());
+            }
+            
+            JOptionPane.showMessageDialog(this, "Sale completed! Total: $" + currentTotal);
+            clearCart();
+            loadMedicines();
+            loadMedicineComboBox();
+            loadSalesHistory();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }
