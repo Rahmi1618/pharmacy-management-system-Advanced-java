@@ -488,12 +488,13 @@ private void showTotalRevenue() {
         }
     }
 public static void main(String[] args) {
-        SwingUtilities.invokeLater() -> {
+        SwingUtilities.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception e) {
-                e.printStackTrace()
+                e.printStackTrace();
             }
             new PharmacyManagementSystem().setVisible(true);
         });
     }
+}
