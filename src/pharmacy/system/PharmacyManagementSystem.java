@@ -464,4 +464,18 @@ try {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }
-
+private void loadSalesHistory() {
+        try {
+            salesTableModel.setRowCount(0);
+            List<Sale> sales = saleDAO.getAllSales();
+            for (Sale sale : sales) {
+                salesTableModel.addRow(new Object[]{
+                    sale.getSaleId(), sale.getSaleDate(),
+                    sale.getCustomerName(), "$" + sale.getTotalAmount(),
+                    sale.getPaymentMethod()
+                });
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error loading sales: " + e.getMessage());
+        }
+    }
